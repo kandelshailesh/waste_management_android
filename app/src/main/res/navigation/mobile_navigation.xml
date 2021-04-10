@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.fohor_maila.ui.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_blogs"
+        android:name="com.example.fohor_maila.ui.BlogFragment"
+        android:label="Blogs"
+        tools:layout="@layout/fragment_blogs"></fragment>
+
+    <fragment
+        android:id="@+id/nav_schedules"
+        android:name="com.example.fohor_maila.ui.ScheduleFragment"
+        android:label="Schedules"
+        tools:layout="@layout/fragment_schedule"></fragment>
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.fohor_maila.ui.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/nav_events"
+        android:name="com.example.fohor_maila.ui.EventFragment"
+        android:label="Events"
+        tools:layout="@layout/fragment_events" />
+
+    <fragment
+        android:id="@+id/nav_blog_details"
+        android:name="com.example.fohor_maila.ui.BlogDetailFragment"
+        android:label="Blogs Details"
+        tools:layout="@layout/fragment_blog_detail" />
+
+    <fragment
+        android:id="@+id/nav_collection_request"
+        android:name="com.example.fohor_maila.ui.CollectionRequestFragment"
+        android:label="Collection Request"
+        tools:layout="@layout/fragment_collection_request" />
+
+    <fragment
+        android:id="@+id/nav_complaints"
+        android:name="com.example.fohor_maila.ui.ComplaintFragment"
+        android:label="Complain"
+        tools:layout="@layout/fragment_complaint" />
+
+</navigation>

@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">starter</string>
+    <string name="title_activity_dashboard">Dashboard</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="invalid_name">Username or Email is required</string>
+    <string name="invalid_password">Password is required</string>
+    <string name="fullName">Please enter fullname</string>
+    <string name="username">Please enter username</string>
+    <string name="cpassword">Password didnot match</string>
+    <string name="email">Please enter email</string>
+    <string name="password">Please enter password</string>
+    <string name="phone">Please enter phone</string>
+    <string name="address">Please input address</string>
+    <string name="gender">Please select gender</string>
+    <string name="api_endpoint">http://c613f85b0978.ngrok.io</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

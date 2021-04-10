@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".ui.HomeFragment">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="24sp"
+        android:fontFamily="@font/roboto_bold"
+        android:textAlignment="center"
+        android:id="@+id/firstName"
+        android:gravity="center">
+    </TextView>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:id="@+id/homeBtn"
+        android:visibility="gone"
+        android:text="Goto Blogs">
+    </Button>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rvSchedule">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

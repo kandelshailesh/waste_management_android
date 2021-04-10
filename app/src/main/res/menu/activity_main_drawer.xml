@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group  android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/icon_home"
+            android:title="@string/menu_home"
+            />
+        <item
+            android:id="@+id/nav_events"
+            android:icon="@drawable/icon_events"
+            android:title="Events"
+            />
+        <item
+            android:id="@+id/nav_blogs"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Blogs" />
+        <item
+            android:id="@+id/nav_schedules"
+            android:icon="@drawable/icon_schedule"
+            android:title="Schedules" />
+        <item
+            android:id="@+id/nav_complaints"
+            android:icon="@drawable/icon_complaint"
+            android:title="Complaints" />
+        <item
+            android:id="@+id/nav_collection_request"
+            android:icon="@drawable/icon_schedule"
+            android:title="Collection Request" />
+        <item
+            android:id="@+id/nav_transaction"
+            android:icon="@drawable/icon_transaction"
+            android:title="Transaction" />
+    </group>
+
+</menu>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+android:background="@drawable/background"
+    tools:context=".MainActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo"></ImageView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_weight="0.1"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center"
+        android:text="Welcome!"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_weight="0.3"
+        android:fontFamily="serif-monospace"
+        android:gravity="center"
+        android:text="The best app for trash, we help you to manage your trash and save your time and helps you to clean environment clean and recycle"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="27dp" />
+
+    <LinearLayout android:layout_gravity="center"   android:layout_weight="0.1" android:gravity="center" android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="20dp">
+    <Button android:text="REGISTER"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:paddingHorizontal="50dp"
+        android:background="@drawable/button_bg"
+        android:paddingVertical="10dp"
+        app:backgroundTint="@color/register"
+        android:translationZ="10dp"
+        android:textSize="18dp"
+        android:onClick="openRegister">
+    </Button>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="openLogin"
+        android:background="@drawable/button_bg"
+        android:paddingHorizontal="50dp"
+        android:paddingVertical="10dp"
+        android:text="SIGN IN"
+        android:layout_marginLeft="-40dp"
+        app:backgroundTint="@color/login"
+        android:textSize="18dp"></Button>
+</LinearLayout>
+
+</LinearLayout>

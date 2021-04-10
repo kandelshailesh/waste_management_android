@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.CollectionRequestFragment"
+    android:background="#EEEEEE"
+    android:id="@+id/collection_request_fragment"
+    android:padding="10dp"
+    android:orientation="vertical"
+  >
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginTop="50dp"
+        android:hint="Location"
+        android:id="@+id/collection_request_location"
+        android:background="@drawable/input_bg1"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
+        android:hint="Description"
+        android:id="@+id/collection_request_remarks"
+        android:inputType="text|textMultiLine"
+        android:background="@drawable/input_bg1">
+    </EditText>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:id="@+id/collection_request_btn"
+        android:text="Submit">
+    </Button>
+
+</LinearLayout>

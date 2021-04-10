@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ProfileFragment"
+
+    android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@drawable/background"
+            android:orientation="horizontal"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                >
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    app:cardCornerRadius="100dp"
+                    app:strokeWidth="1dp"
+                    android:elevation="20dp"
+                    app:strokeColor="@color/black">
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/circular_image"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/button_bg" />
+                </com.google.android.material.card.MaterialCardView>
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="120dp"
+                android:translationZ="20dp"
+                android:layout_marginLeft="-30dp"
+                android:src="@drawable/ic_baseline_camera_alt_24">
+            </ImageView>
+            </LinearLayout>
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.4"
+        android:padding="20dp">
+
+        <Button xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            app:backgroundTint="#889DA8"
+            android:layout_gravity="center"
+            android:background="@drawable/button_bg"
+            android:layout_height="wrap_content"
+            android:text="Account Setting" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0"
+        android:padding="20dp">
+        <Button
+            android:layout_width="match_parent"
+            app:backgroundTint="#889DA8"
+            android:layout_gravity="center"
+            android:background="@drawable/button_bg"
+            android:layout_height="wrap_content" android:text="Logout"></Button>
+    </LinearLayout>
+</LinearLayout>

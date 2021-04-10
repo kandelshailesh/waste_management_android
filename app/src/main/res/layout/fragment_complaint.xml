@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ComplaintFragment"
+    android:background="#EEEEEE"
+    android:id="@+id/complaint_fragment"
+    android:padding="10dp"
+    android:orientation="vertical"
+  >
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginTop="50dp"
+        android:hint="Location"
+        android:id="@+id/complaint_location"
+        android:background="@drawable/input_bg1"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="30dp"
+        android:padding="10dp"
+        android:hint="Description"
+        android:id="@+id/complaint_remarks"
+        android:inputType="text|textMultiLine"
+        android:background="@drawable/input_bg1">
+    </EditText>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:id="@+id/complaint_upload"
+        android:text="Upload Image"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/complaint_image"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:id="@+id/complaint_submit"
+        android:text="Submit">
+    </Button>
+
+</LinearLayout>
