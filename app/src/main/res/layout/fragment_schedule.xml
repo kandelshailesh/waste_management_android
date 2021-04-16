@@ -9,6 +9,17 @@
     android:padding="10dp"
     tools:context=".ui.HomeFragment">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:id="@+id/schedule_result"
+        android:visibility="gone"
+        android:fontFamily="@font/montaga"
+        android:text="No any schedules found">
+    </TextView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

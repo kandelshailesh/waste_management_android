@@ -65,6 +65,7 @@ public class EventFragment extends Fragment {
 
                 if(response.isSuccessful()) {
                     try {
+                        result.setVisibility(View.GONE);
                         String re= response.body().string();
                         JSONObject obj = new JSONObject(re);
                         Log.d("Jjj", obj.getJSONArray("DATA").get(0).toString());
@@ -78,6 +79,7 @@ public class EventFragment extends Fragment {
                 }
                 else
                 {
+                    result.setVisibility(View.VISIBLE);
                     ApiError error = ErrorUtils.parseError(retrofit, response);
                     Log.d("Error",error.getError());
                     Toast.makeText(getActivity(),error.getError(),Toast.LENGTH_SHORT).show();

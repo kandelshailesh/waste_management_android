@@ -21,7 +21,11 @@
     <string name="phone">Please enter phone</string>
     <string name="address">Please input address</string>
     <string name="gender">Please select gender</string>
+    <string name="old_password">Enter current password</string>
+    <string name="new_password">Enter new password</string>
+
     <string name="api_endpoint">http://c613f85b0978.ngrok.io</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

@@ -2,6 +2,7 @@ package com.example.fohor_maila;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -46,6 +47,14 @@ public class LoginActivity extends AppCompatActivity {
         awesomeValidation= new AwesomeValidation(ValidationStyle.BASIC);
         awesomeValidation.addValidation(this,R.id.username, RegexTemplate.NOT_EMPTY,R.string.invalid_name);
         awesomeValidation.addValidation(this,R.id.password, RegexTemplate.NOT_EMPTY,R.string.invalid_password);
+        SharedPreferences sharedPreferences = this.getSharedPreferences("login", Context.MODE_PRIVATE);
+        if(sharedPreferences.contains("token")) {
+            String token = sharedPreferences.getString("token", "");
+            if (!token.isEmpty()) {
+                Intent intent = new Intent(LoginActivity.this, Dashboard.class);
+                startActivity(intent);
+            }
+        }
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +62,6 @@ public class LoginActivity extends AppCompatActivity {
                 loginBtn.setEnabled(false);
                 if(awesomeValidation.validate())
                 {
-                    Toast.makeText(getApplicationContext(),"Valid data",Toast.LENGTH_SHORT).show();
                     handleLogin();
                 }
                 else

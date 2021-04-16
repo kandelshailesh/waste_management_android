@@ -45,8 +45,9 @@ public class ScheduleFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_schedule, container, false);
-        result = root.findViewById(R.id.event_result);
+        result = root.findViewById(R.id.schedule_result);
         recyclerView = root.findViewById(R.id.rvSchedule);
+
         return root;
     }
 
@@ -66,13 +67,6 @@ public class ScheduleFragment extends Fragment {
                 e.printStackTrace();
             }
         }
-        homeBtn = getActivity().<Button>findViewById(R.id.homeBtn);
-        homeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.nav_blogs);
-            }
-        });
         Retrofit retrofit = new Network().getRetrofit1();
         SchedulesInterface jsonPlaceholder = retrofit.create(SchedulesInterface.class);
         Call<ResponseBody> call = jsonPlaceholder.fetch(Id);
@@ -84,10 +78,17 @@ public class ScheduleFragment extends Fragment {
                     try {
                         String re = response.body().string();
                         JSONObject obj = new JSONObject(re);
-                        Log.d("Jjj", obj.getJSONArray("DATA").get(0).toString());
-                        ScheduleAdapter myAdapter = new ScheduleAdapter(getContext(), obj.getJSONArray("DATA"));
-                        recyclerView.setAdapter(myAdapter);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                        Log.d("Jjj", obj.getJSONArray("DATA").toString());
+                        if(obj.getJSONArray("DATA").length()>0) {
+                            result.setVisibility(View.GONE);
+                            ScheduleAdapter myAdapter = new ScheduleAdapter(getContext(), obj.getJSONArray("DATA"));
+                            recyclerView.setAdapter(myAdapter);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                        }
+                        else
+                        {
+                            result.setVisibility(View.VISIBLE);
+                        }
                     } catch (IOException | JSONException e) {
                         e.printStackTrace();
                     }

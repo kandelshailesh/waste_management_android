@@ -52,7 +52,7 @@ public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.BlogHolder> {
             JSONObject a = (JSONObject) blogs.get(position);
             Log.d("From", a.toString());
             holder.ID.setText("1");
-            String imageUrl = BuildConfig.API_URL + a.getString("image");
+            String imageUrl = BuildConfig.API_URL +'/'+ a.getString("image");
             String description = Html.fromHtml(a.getString("description")).toString();
             String title = a.getString("title");
             Picasso.with(context).load(Uri.parse(imageUrl)).into(holder.image);
@@ -65,7 +65,6 @@ public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.BlogHolder> {
 //                    intent.putExtra("description",description);
 //                    intent.putExtra("image_url",imageUrl);
 //                        intent.putExtra("title",title);
-                    Toast.makeText(context, "Recycle Click" + position, Toast.LENGTH_SHORT).show();
 //                    context.startActivity(intent);
                     BlogDetailFragment blogDetailFragment = new BlogDetailFragment();
                     Bundle bundle = new Bundle();

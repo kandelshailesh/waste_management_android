@@ -50,5 +50,35 @@
         android:name="com.example.fohor_maila.ui.ComplaintFragment"
         android:label="Complain"
         tools:layout="@layout/fragment_complaint" />
+    <fragment
+        android:id="@+id/nav_profile_edit"
+        android:name="com.example.fohor_maila.ui.EditProfileFragment"
+        android:label="Edit Profile"
+        tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/nav_change_password"
+        android:name="com.example.fohor_maila.ui.ChangePasswordFragment"
+        android:label="Change Password"
+        tools:layout="@layout/fragment_change_pasword" />
+    <fragment
+        android:id="@+id/nav_packages"
+        android:name="com.example.fohor_maila.ui.PackageFragment"
+        android:label="Packages"
+        tools:layout="@layout/fragment_packages" />
+    <fragment
+        android:id="@+id/nav_subscriptions"
+        android:name="com.example.fohor_maila.ui.SubscriptionFragment"
+        android:label="Subscriptions"
+        tools:layout="@layout/fragment_subscriptions" />
 
+    <fragment
+        android:id="@+id/nav_subscriptions1"
+        android:name="com.example.fohor_maila.ui.SubscriptionFragment"
+        android:label="Subscriptions"
+        tools:layout="@layout/fragment_subscriptions" />
+
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.fohor_maila.ui.LogoutFragment">
+    </fragment>
 </navigation>

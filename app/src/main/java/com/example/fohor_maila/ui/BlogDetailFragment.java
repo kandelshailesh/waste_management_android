@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.fohor_maila.R;
+import com.squareup.picasso.Picasso;
 
 
 public class BlogDetailFragment extends Fragment {
@@ -45,13 +46,14 @@ public class BlogDetailFragment extends Fragment {
         if(bundle!=null) {
             String title1 = bundle.get("title").toString();
             String description1 = bundle.get("description").toString();
-            String imageUrl1 = bundle.get("image_url").toString();
+            String imageUrl1 = bundle.getString("image_url");
             Log.d("Title", title1);
             Log.d("Description", description1);
             Log.d("Image url", imageUrl1);
             title.setText(title1);
             description.setText(description1);
-            image.setImageURI(Uri.parse(imageUrl1));
+            Picasso.with(getContext()).load(Uri.parse(imageUrl1)).into(image);
+//            image.setImageURI(Uri.parse(imageUrl1));
         }
     }
 }

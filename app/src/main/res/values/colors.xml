@@ -10,4 +10,7 @@
     <color name="register">#17D3C8</color>
     <color name="login">#19A5F3</color>
     <color name="input_bg">#889DA8</color>
+    <color name="main_bg">#EEEEEE</color>
+    <color name="light_black">#DD00D38D</color>
+
 </resources>

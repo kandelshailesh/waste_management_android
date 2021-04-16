@@ -6,14 +6,15 @@
 <!--        android:orderInCategory="100"-->
 <!--        android:title="@string/action_settings"-->
 <!--        app:showAsAction="never" />-->
-    <item
-        android:id="@+id/nav_home"
-        android:icon="@drawable/icon_home"
-        android:title="Home" />
+
     <item
         android:id="@+id/nav_events"
         android:icon="@drawable/icon_events"
         android:title="Events" />
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/icon_home"
+        android:title="Home" />
     <item
         android:id="@+id/nav_profile"
         android:icon="@drawable/icon_profile"

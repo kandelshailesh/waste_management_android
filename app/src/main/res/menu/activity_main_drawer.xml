@@ -30,9 +30,12 @@
             android:icon="@drawable/icon_schedule"
             android:title="Collection Request" />
         <item
-            android:id="@+id/nav_transaction"
+            android:id="@+id/nav_subscriptions"
             android:icon="@drawable/icon_transaction"
-            android:title="Transaction" />
+            android:title="Subscription" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/icon_logout"
+            android:title="Logout" />
     </group>
-
 </menu>

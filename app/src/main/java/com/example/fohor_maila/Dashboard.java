@@ -1,11 +1,15 @@
 package com.example.fohor_maila;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -22,6 +26,14 @@ public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        SharedPreferences sharedPreferences = this.getSharedPreferences("login", Context.MODE_PRIVATE);
+        if(!sharedPreferences.contains("token")) {
+            String token = sharedPreferences.getString("token", "");
+            if (!token.isEmpty()) {
+                Intent intent = new Intent(Dashboard.this, MainActivity.class);
+                startActivity(intent);
+            }
+        }
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -30,7 +42,7 @@ public class Dashboard extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_blogs,R.id.nav_blog_details,R.id.nav_events,R.id.nav_profile)
+                R.id.nav_home, R.id.nav_blogs,R.id.nav_blog_details,R.id.nav_events,R.id.nav_profile,R.id.nav_schedules)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -54,4 +66,5 @@ public class Dashboard extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 }

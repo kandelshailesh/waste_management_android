@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingHorizontal="5dp"
-    android:paddingVertical="10dp"
-    tools:context=".BlogDetails">
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="20dp"
+    tools:context=".ui.BlogDetailFragment">
     <ScrollView android:layout_height="match_parent"
         android:layout_width="match_parent"
         xmlns:android="http://schemas.android.com/apk/res/android">
@@ -20,11 +20,12 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/blogd_title"
                 android:textSize="24sp"
-                android:fontFamily="@font/roboto_bold"
+                android:fontFamily="@font/montaga"
+                android:textColor="@color/black"
                 android:text="Blogs first 1"></TextView>
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="200dp"
                 android:scaleType="fitXY"
                 android:paddingVertical="20dp"
                 android:layout_weight="0.1"
@@ -38,9 +39,8 @@
                     android:id="@+id/blogd_description"
                     android:textSize="20sp"
                     android:fontFamily="@font/roboto"
-                    android:ellipsize="end"
-                    android:maxLines="3"
                     android:layout_weight="0.1"
+                    android:lineHeight="30dp"
                     android:singleLine="false"
                     android:text="Hello hw  are you adjfkadfakjfkajkfjakfjakjfkajfakdfjakjfkkfjakfjakkfajdkfjajdfk jakjdfkajdfkjadkfjadkfjakdjfkadjf">
                 </TextView>
