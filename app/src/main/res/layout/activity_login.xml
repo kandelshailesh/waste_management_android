@@ -145,7 +145,7 @@
                 android:fontFamily="@font/montaga"
                 android:onClick="openRegister"
                 android:layout_marginLeft="10dp"
-                android:textColor="@color/white"
+                android:textColor="@color/light_black"
                 >
             </TextView>
         </LinearLayout>

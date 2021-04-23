@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -47,11 +48,15 @@ Button signupBtn;
         signupBtn= findViewById(R.id.sigupBtn);
         AwesomeValidation awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
         awesomeValidation.addValidation(this,R.id.fullName, RegexTemplate.NOT_EMPTY,R.string.fullName);
+        awesomeValidation.addValidation(this, R.id.fullName, "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$", R.string.invalid_fullname);
         awesomeValidation.addValidation(this,R.id.username, RegexTemplate.NOT_EMPTY,R.string.username);
         awesomeValidation.addValidation(this,R.id.email, RegexTemplate.NOT_EMPTY,R.string.email);
+        awesomeValidation.addValidation(this,R.id.email, Patterns.EMAIL_ADDRESS,R.string.invalid_email);
         awesomeValidation.addValidation(this,R.id.password, RegexTemplate.NOT_EMPTY,R.string.password);
+        awesomeValidation.addValidation(this,R.id.cpassword, RegexTemplate.NOT_EMPTY,R.string.password);
         awesomeValidation.addValidation(this,R.id.cpassword, R.id.password,R.string.cpassword);
         awesomeValidation.addValidation(this,R.id.phone, RegexTemplate.NOT_EMPTY,R.string.phone);
+        awesomeValidation.addValidation(this, R.id.phone, "^[2-9]{2}[0-9]{8}$", R.string.invalid_phone);
         awesomeValidation.addValidation(this,R.id.address, RegexTemplate.NOT_EMPTY,R.string.address);
         awesomeValidation.addValidation(this,R.id.gender, RegexTemplate.NOT_EMPTY,R.string.gender);
 
@@ -80,7 +85,7 @@ Button signupBtn;
     {
         Retrofit retrofit = new Network().getRetrofit1();
         Users users = retrofit.create(Users.class);
-        Call<ResponseBody> call = users.signup(fullName.getText().toString(),username.getText().toString(),email.getText().toString(),password.getText().toString(),phone.getText().toString(),address.getText().toString(),((RadioButton)findViewById(gender.getCheckedRadioButtonId())).getText().toString());
+        Call<ResponseBody> call = users.signup(fullName.getText().toString(),username.getText().toString(),email.getText().toString(),password.getText().toString(),phone.getText().toString(),address.getText().toString(),((RadioButton)findViewById(gender.getCheckedRadioButtonId())).getText().toString(),false);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

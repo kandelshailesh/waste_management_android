@@ -26,7 +26,7 @@ public interface Users {
 
     @FormUrlEncoded
     @POST("api/backend/v1/user/signup")
-    Call<ResponseBody> signup(@Field("fullName") String fullName, @Field("username") String username, @Field("email") String email, @Field("password") String password, @Field("phone") String phone, @Field("address") String address, @Field("gender") String gender);
+    Call<ResponseBody> signup(@Field("fullName") String fullName, @Field("username") String username, @Field("email") String email, @Field("password") String password, @Field("phone") String phone, @Field("address") String address, @Field("gender") String gender,@Field("isAdmin") Boolean isAdmin);
 
     @POST("api/backend/v1/user/{id}")
     Call<ResponseBody> fetch(@Path("id") Integer i);

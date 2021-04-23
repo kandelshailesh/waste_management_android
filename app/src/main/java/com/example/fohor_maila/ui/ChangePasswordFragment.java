@@ -51,7 +51,7 @@ public class ChangePasswordFragment extends Fragment {
     Integer user_id;
     EditText old_password, new_password;
     Button changePasswordBtn;
-    AwesomeValidation awesomeValidation=null;
+    AwesomeValidation awesomeValidation = null;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -110,7 +110,7 @@ public class ChangePasswordFragment extends Fragment {
             Retrofit retrofit = new Network().getRetrofit1();
             Users jsonPlaceholder = retrofit.create(Users.class);
             JSONObject obj = new JSONObject();
-            obj.put("password",old_password.getText().toString());
+            obj.put("password", old_password.getText().toString());
             obj.put("new_password", new_password.getText().toString());
             Call<ResponseBody> call = jsonPlaceholder.change_password(user_id, obj.toString());
             call.enqueue(new Callback<ResponseBody>() {
@@ -119,11 +119,14 @@ public class ChangePasswordFragment extends Fragment {
                     if (response.isSuccessful()) {
                         try {
                             String re = response.body().string();
-                            SharedPreferences settings = getContext().getSharedPreferences("login", Context.MODE_PRIVATE);
-                            settings.edit().remove("user_info").commit();
+//                            SharedPreferences settings = getContext().getSharedPreferences("login", Context.MODE_PRIVATE);
+//                            settings.edit().remove("user_info").commit();
+//
+//                            Intent intent = new Intent(getContext(), LoginActivity.class);
+//                            startActivity(intent);
+
                             Toast.makeText(getActivity(), "Password changed successfully", Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(getContext(), LoginActivity.class);
-                            startActivity(intent);
+                            Navigation.findNavController(getView()).navigate(R.id.nav_profile);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

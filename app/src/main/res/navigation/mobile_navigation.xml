@@ -70,13 +70,11 @@
         android:name="com.example.fohor_maila.ui.SubscriptionFragment"
         android:label="Subscriptions"
         tools:layout="@layout/fragment_subscriptions" />
-
     <fragment
         android:id="@+id/nav_subscriptions1"
         android:name="com.example.fohor_maila.ui.SubscriptionFragment"
         android:label="Subscriptions"
         tools:layout="@layout/fragment_subscriptions" />
-
     <fragment
         android:id="@+id/nav_logout"
         android:name="com.example.fohor_maila.ui.LogoutFragment">

@@ -116,8 +116,14 @@ public class ProfileFragment extends Fragment {
                 email.setText("Email: "+s.getString("email"));
                 phone.setText("Mobile No. "+s.getString("phone"));
                 image_url = BuildConfig.API_URL+'/'+s.getString("image");
-                Picasso.with(getContext()).load(Uri.parse(image_url)).into(imageView);
-//                firstName.setText(n);
+                if(s.getString("image").isEmpty())
+                {
+                    Picasso.with(getContext()).load(Uri.parse("https://images.squarespace-cdn.com/content/v1/54b7b93ce4b0a3e130d5d232/1519987020970-8IQ7F6Z61LLBCX85A65S/ke17ZwdGBToddI8pDm48kGfiFqkITS6axXxhYYUCnlRZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpxQ1ibo-zdhORxWnJtmNCajDe36aQmu-4Z4SFOss0oowgxUaachD66r8Ra2gwuBSqM/icon.png?format=1000w")).into(imageView);
+                }
+                else{
+                    Picasso.with(getContext()).load(Uri.parse(image_url)).into(imageView);
+                }
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }

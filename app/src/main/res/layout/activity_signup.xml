@@ -77,14 +77,13 @@
             app:boxBackgroundColor="@color/white"
             app:boxStrokeColor="@color/black"
             android:layout_marginTop="10dp"
-
+            app:passwordToggleEnabled="true"
             app:startIconDrawable="@drawable/ic_password">
-
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -94,14 +93,14 @@
             app:boxBackgroundColor="@color/white"
             app:boxStrokeColor="@color/black"
             android:layout_marginTop="10dp"
-
+            app:passwordToggleEnabled="true"
             app:startIconDrawable="@drawable/ic_password">
 
             <EditText
                 android:id="@+id/cpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -214,7 +213,7 @@
             android:onClick="openLogin"
             android:layout_marginLeft="10dp"
             android:text="Sign In"
-            android:textColor="@color/teal_700">
+            android:textColor="@color/light_black">
 
         </TextView>
     </LinearLayout>

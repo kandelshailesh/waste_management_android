@@ -54,7 +54,6 @@ public class LogoutFragment extends Fragment {
         settings.edit().remove("user_info").commit();
         Intent intent = new Intent(getContext(), MainActivity.class);
         startActivity(intent);
-
     }
 
 }

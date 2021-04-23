@@ -63,7 +63,6 @@ public class EditProfileFragment extends Fragment {
         phone = root.findViewById(R.id.profile_editphone);
         editBtn = root.findViewById(R.id.profile_editBtn1);
         gender = root.findViewById(R.id.profile_editgender);
-
         return root;
     }
 
@@ -75,12 +74,12 @@ public class EditProfileFragment extends Fragment {
         awesomeValidation.addValidation(getActivity(), R.id.profile_editphone, RegexTemplate.NOT_EMPTY, R.string.phone);
         awesomeValidation.addValidation(getActivity(), R.id.profile_editaddress, RegexTemplate.NOT_EMPTY, R.string.address);
         awesomeValidation.addValidation(getActivity(), R.id.profile_editgender, RegexTemplate.NOT_EMPTY, R.string.gender);
+        awesomeValidation.addValidation(getActivity(), R.id.profile_editphone, "^[2-9]{2}[0-9]{8}$", R.string.invalid_phone);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
