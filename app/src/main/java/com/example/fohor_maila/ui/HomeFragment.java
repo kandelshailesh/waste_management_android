@@ -91,12 +91,12 @@ public class HomeFragment extends Fragment {
                     try {
                         String re = response.body().string();
                         JSONObject obj = new JSONObject(re);
-                        Log.d("Jjj", obj.getJSONArray("DATA").toString());
                         if(obj.getJSONArray("DATA").length()>0) {
                             ScheduleAdapter myAdapter = new ScheduleAdapter(getContext(), obj.getJSONArray("DATA"));
                             recyclerView.setAdapter(myAdapter);
                             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
                         }
+                        
                     } catch (IOException | JSONException e) {
                         e.printStackTrace();
                     }

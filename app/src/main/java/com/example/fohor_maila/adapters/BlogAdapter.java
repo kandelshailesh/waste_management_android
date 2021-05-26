@@ -82,7 +82,7 @@ public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.BlogHolder> {
 
     @Override
     public int getItemCount() {
-        return 2;
+        return blogs.length();
     }
 
     public class BlogHolder extends RecyclerView.ViewHolder {

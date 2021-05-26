@@ -37,6 +37,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.fohor_maila.MainActivity;
 import com.example.fohor_maila.R;
 import com.example.fohor_maila.adapters.ScheduleAdapter;
 import com.example.fohor_maila.interfaces.CollectionRequestInterface;
@@ -84,6 +85,7 @@ public class ComplaintFragment extends Fragment {
     File file = null;
     String imagePath;
     private int STORAGE_PERMISSION_CODE = 10;
+    String lat=null,lng=null;
 
 
     public static RequestBody toRequestBody(String value) {
@@ -100,16 +102,15 @@ public class ComplaintFragment extends Fragment {
         title = root.findViewById(R.id.complaint_title);
         getLocation = root.findViewById(R.id.get_location);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getContext());
-        if(ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
-        {
-            Toast.makeText(getContext(),"Granted permission",Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
+        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(getContext(), "Granted permission", Toast.LENGTH_SHORT).show();
+        } else {
             requestStoragePermission();
         }
-            return root;
+        return root;
     }
+
+
 
 
     private void requestStoragePermission() {
@@ -122,7 +123,7 @@ public class ComplaintFragment extends Fragment {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             ActivityCompat.requestPermissions(getActivity(),
-                                    new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
+                                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
                         }
                     })
                     .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
@@ -134,12 +135,13 @@ public class ComplaintFragment extends Fragment {
                     .create().show();
         } else {
             ActivityCompat.requestPermissions(getActivity(),
-                    new String[] {Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
         }
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == STORAGE_PERMISSION_CODE)  {
+        if (requestCode == STORAGE_PERMISSION_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(getContext(), "Permission GRANTED", Toast.LENGTH_SHORT).show();
             } else {
@@ -147,9 +149,8 @@ public class ComplaintFragment extends Fragment {
             }
         }
     }
+
     public void getCurrentLocation() {
-
-
         if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -160,6 +161,7 @@ public class ComplaintFragment extends Fragment {
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
+
         fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
             @Override
             public void onComplete(@NonNull Task<Location> task) {
@@ -169,6 +171,8 @@ public class ComplaintFragment extends Fragment {
                     try {
                         List<Address> address = geocoder.getFromLocation(location1.getLatitude(), location1.getLongitude(), 1);
                         location.setText(address.get(0).getAddressLine(0).toString());
+                        lat=Double.toString(location1.getLatitude());
+                        lng=Double.toString(location1.getLongitude());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -181,7 +185,6 @@ public class ComplaintFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         uploadBtn = getActivity().findViewById(R.id.complaint_upload);
-
         submitBtn = getActivity().findViewById(R.id.complaint_submit);
         getLocation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -228,7 +231,10 @@ public class ComplaintFragment extends Fragment {
                     map.put("title", toRequestBody(title.getText().toString()));
                     map.put("description", toRequestBody(remarks.getText().toString()));
                     map.put("location", toRequestBody(location.getText().toString()));
-                    if(file!=null) {
+                    map.put("lat", toRequestBody(lat));
+                    map.put("lng", toRequestBody(lng));
+
+                    if (file != null) {
                         RequestBody fileBody = RequestBody.create(MediaType.parse("image/png"), file);
                         map.put("image\"; filename=\"pp.png\"", fileBody);
                     }

@@ -18,6 +18,10 @@
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Blogs" />
         <item
+            android:id="@+id/nav_pickup"
+            android:icon="@drawable/pickup"
+            android:title="Special Pickup" />
+        <item
             android:id="@+id/nav_schedules"
             android:icon="@drawable/icon_schedule"
             android:title="Schedules" />
@@ -27,7 +31,7 @@
             android:title="Complaints" />
         <item
             android:id="@+id/nav_collection_request"
-            android:icon="@drawable/icon_schedule"
+            android:icon="@drawable/request"
             android:title="Collection Request" />
         <item
             android:id="@+id/nav_subscriptions"

@@ -60,6 +60,7 @@ public class CollectionRequestFragment extends Fragment {
     ImageButton getLocation;
     EditText location, remarks;
     FusedLocationProviderClient fusedLocationProviderClient;
+    String lat=null,lng=null;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -94,6 +95,8 @@ public class CollectionRequestFragment extends Fragment {
                     try {
                         List<Address> address = geocoder.getFromLocation(location1.getLatitude(), location1.getLongitude(), 1);
                         location.setText(address.get(0).getAddressLine(0).toString());
+                        lat=Double.toString(location1.getLatitude());
+                        lng=Double.toString(location1.getLongitude());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -124,10 +127,12 @@ public class CollectionRequestFragment extends Fragment {
                 if (TextUtils.isEmpty(location.getText().toString())) {
                     Toast.makeText(getContext(), "Please select location",
                             Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 if (TextUtils.isEmpty(remarks.getText().toString())) {
                     Toast.makeText(getContext(), "Please enter description",
                             Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
                 Retrofit retrofit = new Network().getRetrofit1();
@@ -136,6 +141,8 @@ public class CollectionRequestFragment extends Fragment {
                 try {
                     req.put("location", location.getText().toString());
                     req.put("remarks", remarks.getText().toString());
+                    req.put("lat", lat);
+                    req.put("lng",lng);
                     SharedPreferences sharedPreferences = getActivity().getSharedPreferences("login", Context.MODE_PRIVATE);
                     String user_info = sharedPreferences.getString("user_info", "");
                     if (user_info.isEmpty()) {

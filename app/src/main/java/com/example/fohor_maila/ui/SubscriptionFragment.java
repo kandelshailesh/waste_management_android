@@ -57,7 +57,7 @@ public class SubscriptionFragment extends Fragment {
     private static final int REQUEST_CODE_PAYMENT = 1;
     private static final int CREATE_CODE_PAYMENT = 2;
     private ESewaConfiguration eSewaConfiguration;
-    LinearLayout subscriptionCard;
+    LinearLayout subscriptionCard,buyLinearLayout;
 
     private static final String MERCHANT_ID = "JB0BBQ4aD0UqIThFJwAKBgAXEUkEGQUBBAwdOgABHD4DChwUAB0R";
     private static final String MERCHANT_SECRET_KEY = "BhwIWQQADhIYSxILExMcAgFXFhcOBwAKBgAXEQ==";
@@ -83,6 +83,7 @@ public class SubscriptionFragment extends Fragment {
         makePaymentBtn = root.findViewById(R.id.makePaymentBtn);
         subscriptionCard = root.findViewById(R.id.subscription_layout);
         bundle = this.getArguments();
+        buyLinearLayout=root.findViewById(R.id.buyLinearLayout);
         return root;
     }
 
@@ -133,7 +134,7 @@ public class SubscriptionFragment extends Fragment {
                 if (response.isSuccessful()) {
                     try {
                         subscriptionCard.setVisibility(View.VISIBLE);
-                        addSubscription.setVisibility(View.GONE);
+                        buyLinearLayout.setVisibility(View.GONE);
                         String re = response.body().string();
                         Log.d("Data", re);
                         JSONObject obj = new JSONObject(re);
@@ -149,10 +150,9 @@ public class SubscriptionFragment extends Fragment {
                             plan_id = data1.getInt("package_id");
                             packageCost = data1.getJSONObject("package").getDouble("cost");
                         } else {
-                            addSubscription.setVisibility(View.VISIBLE);
+                            buyLinearLayout.setVisibility(View.VISIBLE);
                             subscriptionCard.setVisibility(View.GONE);
                         }
-
                     } catch (IOException | JSONException e) {
                         e.printStackTrace();
                     }
@@ -172,7 +172,7 @@ public class SubscriptionFragment extends Fragment {
     }
 
     private void makePayment(String amount) {
-        ESewaPayment eSewaPayment = new ESewaPayment(amount, "someProductName", "someUniqueId_" + System.nanoTime(), "");
+        ESewaPayment eSewaPayment = new ESewaPayment(amount, "Fohor Maila", "someUniqueId_" + System.nanoTime(), "");
         Intent intent = new Intent(getActivity(), ESewaPaymentActivity.class);
         intent.putExtra(ESewaConfiguration.ESEWA_CONFIGURATION, eSewaConfiguration);
         intent.putExtra(ESewaPayment.ESEWA_PAYMENT, eSewaPayment);
@@ -180,7 +180,7 @@ public class SubscriptionFragment extends Fragment {
     }
 
     private void makePayment1(String amount) {
-        ESewaPayment eSewaPayment = new ESewaPayment(amount, "someProductName", "someUniqueId_" + System.nanoTime(), "");
+        ESewaPayment eSewaPayment = new ESewaPayment(amount, "Fohor Maila", "someUniqueId_" + System.nanoTime(), "");
         Intent intent = new Intent(getActivity(), ESewaPaymentActivity.class);
         intent.putExtra(ESewaConfiguration.ESEWA_CONFIGURATION, eSewaConfiguration);
         intent.putExtra(ESewaPayment.ESEWA_PAYMENT, eSewaPayment);
@@ -234,7 +234,7 @@ public class SubscriptionFragment extends Fragment {
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         if (response.isSuccessful()) {
                             try {
-                                addSubscription.setVisibility(View.GONE);
+                                buyLinearLayout.setVisibility(View.GONE);
                                 String re = response.body().string();
                                 Toast.makeText(getContext(), "Subscription updated successfully", Toast.LENGTH_LONG).show();
                                 Navigation.findNavController(getView()).navigate(R.id.nav_subscriptions);
@@ -243,7 +243,7 @@ public class SubscriptionFragment extends Fragment {
                                 e.printStackTrace();
                             }
                         } else {
-                            addSubscription.setVisibility(View.VISIBLE);
+                            buyLinearLayout.setVisibility(View.VISIBLE);
                             ApiError error = ErrorUtils.parseError(retrofit, response);
                             Log.d("Error", error.getError());
                             Toast.makeText(getActivity(), error.getError(), Toast.LENGTH_SHORT).show();
@@ -316,7 +316,7 @@ public class SubscriptionFragment extends Fragment {
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         if (response.isSuccessful()) {
                             try {
-                                addSubscription.setVisibility(View.GONE);
+                                buyLinearLayout.setVisibility(View.GONE);
                                 String re = response.body().string();
                                 Toast.makeText(getContext(), "Subscription created successfully", Toast.LENGTH_LONG).show();
                                 Navigation.findNavController(getView()).navigate(R.id.nav_subscriptions);
@@ -324,7 +324,7 @@ public class SubscriptionFragment extends Fragment {
                                 e.printStackTrace();
                             }
                         } else {
-                            addSubscription.setVisibility(View.VISIBLE);
+                            buyLinearLayout.setVisibility(View.VISIBLE);
                             ApiError error = ErrorUtils.parseError(retrofit, response);
                             Log.d("Error", error.getError());
                             Toast.makeText(getActivity(), error.getError(), Toast.LENGTH_SHORT).show();
@@ -375,7 +375,7 @@ public class SubscriptionFragment extends Fragment {
                     if (response.isSuccessful()) {
                         try {
                             subscriptionCard.setVisibility(View.VISIBLE);
-                            addSubscription.setVisibility(View.GONE);
+                            buyLinearLayout.setVisibility(View.GONE);
                             String re = response.body().string();
                             Log.d("Data", re);
                             JSONObject obj = new JSONObject(re);
@@ -391,7 +391,7 @@ public class SubscriptionFragment extends Fragment {
                                 plan_id = data1.getInt("package_id");
                                 packageCost = data1.getJSONObject("package").getDouble("cost");
                             } else {
-                                addSubscription.setVisibility(View.VISIBLE);
+                                buyLinearLayout.setVisibility(View.VISIBLE);
                                 subscriptionCard.setVisibility(View.GONE);
                             }
 

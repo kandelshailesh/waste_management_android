@@ -71,10 +71,15 @@ public class PackageFragment extends Fragment {
                         result.setVisibility(View.GONE);
                         String re= response.body().string();
                         JSONObject obj = new JSONObject(re);
-                        Log.d("Jjj", obj.getJSONArray("DATA").get(0).toString());
-                        PackageAdapter myAdapter = new PackageAdapter(getContext(), obj.getJSONArray("DATA"));
-                        recyclerView.setAdapter(myAdapter);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                        if(obj.getJSONArray("DATA").length()>0) {
+                            PackageAdapter myAdapter = new PackageAdapter(getContext(), obj.getJSONArray("DATA"));
+                            recyclerView.setAdapter(myAdapter);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                        }
+                        else
+                        {
+                            result.setVisibility(View.VISIBLE);
+                        }
                     } catch (IOException | JSONException e) {
                         e.printStackTrace();
                     }

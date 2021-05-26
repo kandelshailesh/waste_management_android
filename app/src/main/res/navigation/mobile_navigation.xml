@@ -79,4 +79,11 @@
         android:id="@+id/nav_logout"
         android:name="com.example.fohor_maila.ui.LogoutFragment">
     </fragment>
+
+    <fragment
+        android:id="@+id/nav_pickup"
+        android:name="com.example.fohor_maila.ui.PickupFragment"
+        android:label="Special Pickup Team"
+        tools:layout="@layout/fragment_pickup">
+    </fragment>
 </navigation>

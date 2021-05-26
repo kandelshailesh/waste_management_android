@@ -66,10 +66,15 @@ public class BlogFragment extends Fragment {
                         result.setVisibility(View.GONE);
                         String re= response.body().string();
                         JSONObject obj = new JSONObject(re);
-                        Log.d("Jjj", obj.getJSONArray("DATA").get(0).toString());
-                        BlogAdapter myAdapter = new BlogAdapter(getContext(), obj.getJSONArray("DATA"));
-                        recyclerView.setAdapter(myAdapter);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                         if(obj.getJSONArray("DATA").length()>0) {
+                             BlogAdapter myAdapter = new BlogAdapter(getContext(), obj.getJSONArray("DATA"));
+                             recyclerView.setAdapter(myAdapter);
+                             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+                         }
+                         else
+                         {
+                             result.setVisibility(View.VISIBLE);
+                         }
                     } catch (IOException | JSONException e) {
                         e.printStackTrace();
                     }

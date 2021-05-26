@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingHorizontal="20dp"
     android:paddingVertical="20dp"
     tools:context=".ui.BlogDetailFragment">
     <ScrollView android:layout_height="match_parent"
@@ -14,6 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingHorizontal="20dp"
             android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
@@ -21,11 +21,12 @@
                 android:id="@+id/blogd_title"
                 android:textSize="24sp"
                 android:fontFamily="@font/montaga"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:text="Blogs first 1"></TextView>
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="250dp"
                 android:scaleType="fitXY"
                 android:paddingVertical="20dp"
                 android:layout_weight="0.1"

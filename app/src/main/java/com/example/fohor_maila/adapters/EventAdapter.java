@@ -69,7 +69,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
             DateTimeFormatter formatter =
                     DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.ENGLISH);
             LocalDateTime date = LocalDateTime.parse(a.getString("start_time"), formatter);
-
             holder.title.setText(title);
             holder.description.setText(description);
             holder.time.setText(DateTimeFormatter.ofPattern("MMM dd uuuu hh:mm a").format(date));
@@ -80,7 +79,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
 
     @Override
     public int getItemCount() {
-        return 2;
+        return blogs.length();
     }
 
     public class EventHolder extends RecyclerView.ViewHolder {
@@ -99,7 +98,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventHolder>
         }
 
         public void onClick(View view) {
-
             listener.onClick(view, getAdapterPosition(), false);
         }
     }

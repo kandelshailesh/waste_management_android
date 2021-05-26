@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.BlogFragment"
     android:background="#EEEEEE"
-    android:id="@+id/blog_fragment"
-    android:orientation="vertical">
+    android:id="@+id/fragment_pickup"
+    android:orientation="vertical"
+    tools:context=".ui.PickupFragment">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:textSize="20sp"
-        android:id="@+id/blog_result"
+        android:id="@+id/result"
         android:visibility="gone"
         android:fontFamily="@font/montaga"
-        android:text="No any schedules found">
+        android:text="No any pickup team found">
     </TextView>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:id="@+id/rvBlogs"
+        android:id="@+id/rvPickup"
         android:orientation="vertical"
         android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>
